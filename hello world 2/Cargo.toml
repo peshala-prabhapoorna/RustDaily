@@ -1,7 +1,0 @@
-[package]
-name = "hello-world"
-version = "0.1.0"
-authors = ["Peshala Prabhapoorna <peshalaprabhapoorna@gmail.com."]
-edition = "2021"
-
-[dependencies]
