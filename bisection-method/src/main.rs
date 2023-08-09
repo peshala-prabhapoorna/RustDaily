@@ -8,7 +8,23 @@ fn main() {
         .read_line(&mut user_input)
         .expect("Failed to read line");
 
-    println!("{}", bisection(&user_input, 0.0, 2.0, 0.0001));
+    println!("Enter two values on either side of root and tolerance:");
+    println!("(insert a single space between each value)");
+    stdin()
+        .read_line(&mut user_input)
+        .expect("Failed to read line");
+    
+    let mut split_user_input= user_input.split(" ");
+    let a_str = split_user_input.next().unwrap();
+    let b_str = split_user_input.next().unwrap();
+    let tolerance_str = split_user_input.next().unwrap();
+    //println!("a: {} b: {} tolerance: {}", a_str, b_str, tolerance_str);
+
+    let a: f64 = a_str.parse().unwrap();
+    let b: f64 = b_str.parse().unwrap();
+    let tolerance: f64 = tolerance_str.parse().unwrap();
+    //println!("a: {} b: {} tolerance: {}", a, b, tolerance);
+    println!("root: {}", bisection(&user_input, a, b, tolerance));
 }
 
 fn bisection(function_str: &str, mut a: f64, mut b: f64, tolerance: f64) -> f64 {
