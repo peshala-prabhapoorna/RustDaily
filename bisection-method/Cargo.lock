@@ -5,3 +5,12 @@ version = 3
 [[package]]
 name = "bisection-method"
 version = "0.1.0"
+dependencies = [
+ "evalexpr",
+]
+
+[[package]]
+name = "evalexpr"
+version = "5.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "f92f4c234e4531351f039d03935a5a9b1edc6a7505ffab23e3697bd319d17aa8"
