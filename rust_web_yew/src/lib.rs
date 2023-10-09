@@ -1,6 +1,6 @@
 use gloo::console::log;
 use serde::{Deserialize, Serialize};
-use stylist::{style, yew::styled_component, Style};
+use stylist::{css, style, yew::styled_component};
 use yew::prelude::*;
 
 #[derive(Serialize, Deserialize)]
@@ -27,13 +27,11 @@ pub fn app() -> Html {
     let stylesheet = style!(
         r#" 
             h1 {
-                color: teal 
-            }
-            p {
-                color: lightgreen
+                color: aqua;
             }
             ul {
-                color: aqua
+                color: lightgreen;
+                font-size: 18px;
             }
         "#
     )
@@ -43,9 +41,9 @@ pub fn app() -> Html {
         <div class={stylesheet}>
             <h1 class={class}>{"Hello World!"}</h1>
             if class == "my_title" {
-                <p>{"Hey there!"}</p>
+                <p class={css!("color: lightblue; font-size: 25px;")}>{"Hey there!"}</p>
             } else {
-                <p>{"I am not a title"}</p>
+                <p class={css!("color: lightblue; font-size: 25px;")}>{"I am not a title"}</p>
             }
             if let Some(message) = message {
                 <p>{message}</p>
@@ -61,6 +59,6 @@ pub fn app() -> Html {
 
 fn list_to_html(list: Vec<&str>) -> Vec<Html> {
     list.iter()
-        .map(|item| html! {<li>{format!("{} - ☑",item)}</li>})
+        .map(|item| html! {<li>{format!("{} - ☑", item)}</li>})
         .collect()
 }
